@@ -1,7 +1,6 @@
 # TODO: golf lazy_segtree
 # TODO: newton rahpson
 # TODO: better CRT
-# TODO: miller rabin
 # TODO: fancy factorization
 
 import os

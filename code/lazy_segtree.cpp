@@ -1,8 +1,10 @@
 // Lazy prop segtree
-struct lazy_segtree {
+// f(T, T)->T   g(D, D)->D    h(D, T)->T
+namespace lazy_segtree {
 	T t[2 * NN], idT;
 	D d[NN], idD;
 	ll n = NN;
+    ll x = (fill_n(d, NN, idD), 0);
 
     void calc(int p) {
         t[p] = f(t[p*2], t[p*2+1]);
@@ -42,12 +44,12 @@ struct lazy_segtree {
     void modify(int l, int r, D v) {
         if (v==idD) return;
         push(l), push(r-1);
-        bool cl=false, cr=false;
+        bool cl=0, cr=0;
         for (l+=n, r+=n; l<r; l/=2, r/=2) {
             if (cl) calc(l-1);
             if (cr) calc(r);
-            if (l&1) apply(l++, v), cl=true;
-            if (r&1) apply(--r, v), cr=true;
+            if (l&1) apply(l++, v), cl=1;
+            if (r&1) apply(--r, v), cr=1;
         }
         for (--l; r>0; l/=2, r/=2) {
             if (cl) calc(l);
@@ -64,5 +66,5 @@ struct lazy_segtree {
         }
         return f(resl, resr);
     }
-};
+}
 
