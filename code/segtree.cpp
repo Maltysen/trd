@@ -1,10 +1,9 @@
 // segtree
 namespace seg {
     typedef ll T;
-    T id=0;
+    T t[2 * NN], id=0;
     T f(T a, T b) {return a+b;}
 
-    T t[2 * NN];
     ll n=NN;  // array size
 
     void modify(ll p, T value) {  // set value at position p

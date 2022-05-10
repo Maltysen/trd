@@ -1,7 +1,7 @@
 # TODO: golf lazy_segtree
 # TODO: newton rahpson
 # TODO: better CRT
-# TODO: fancy factorization
+# TODO: suffix tree operations
 
 import os
 import hashlib

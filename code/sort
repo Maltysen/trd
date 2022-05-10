@@ -16,6 +16,7 @@ gaussmod.cpp
 suffix_tree.cpp
 inverse_segtree.cpp
 lazy_segtree.cpp
+big_factor.cpp
 crt.cpp
 mos.cpp
 sos_dp.cpp

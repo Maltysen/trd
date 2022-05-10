@@ -1,6 +1,8 @@
-#define ff(x) abs((x = (mul(x, x) + c)%n)-y)
-ll rho(ll n, ll x0=2, ll c=1) {
-    ll x=x0, g=1, q=1, z, y;
+// Pollard Rho Brent O(n^1/4)
+// Needs mul from miller rabin
+#define ff(x) abs((x = (mul(x, x) + c)%n) -y)
+ll rho(ll n, ll u=2, ll c=1) {
+    ll x=u, g=1, q=1, z, y;
 
     for (int l=1,i,k; g<2; l*=2) {
         y = x;
@@ -13,27 +15,27 @@ ll rho(ll n, ll x0=2, ll c=1) {
             g = gcd(q, n);
         }
     }
-
     if (g==n)
-        for (;g=gcd(ff(z), n), g<2;);
+        while(g=gcd(n, ff(z)), g<2);
 
-    return g-n?g:rho(n, x0+1, c+1);
+    return g-n? g: rho(n, u+1, c+1);
 }
 
+// Factor numbers in O(n^1/3 /log(n))
+// Needs primes up to O(n^1/3)
 auto fac(ll n) {
-    #define rr(x) {f[x]++; return f;}
     map<ll,ll> f;
     for (ll p:primes) {
-        if (p*p*p>n) break;
+        if (p*p*p>n) {
+            if (!miller_rabin(p=n)) {
+                p = roundl(sqrtl(n));
+                if (p*p-n) p=rho(n);
+            }
+            f[p]++, f[n/p]++;
+            f.erase(1);
+            return f;
+        }
         while (n%p==0) n/=p, f[p]++;
     }
-    if (n==1) return f;
-    if (miller_rabin(n)) rr(n)
-
-    ll x = roundl(sqrtl(n));
-    if (x*x==n) rr(x)
-
-    f[x=rho(n)]++;
-    rr(n/x)
 }
 
