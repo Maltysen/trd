@@ -9,9 +9,9 @@ sort(q.begin(), q.end(), [&](ll a, ll b) {
 ll curl=0, curr=-1;
 for (auto i:q) {
 	while(curr<r[i]) update(++curr, 1);
+	while(curl>l[i]) update(--curl, 1);
 	while(curr>r[i]) update(curr--, -1);
 	while(curl<l[i]) update(curl++, -1);
-	while(curl>l[i]) update(--curl, 1);
 
 	ans[i] = tot;
 }

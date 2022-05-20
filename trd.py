@@ -32,13 +32,20 @@ latex_code = r"""
 """
 
 def compute_checksum(code):
-    with open("tmp/code.cpp", "w") as f:
-        f.write(code)
+    # with open("tmp/code.cpp", "w") as f:
+    #     f.write(code)
 
-    os.system("gcc -fpreprocessed -dD -E -P tmp/code.cpp -o tmp/comp.cpp")
+    # os.system("gcc -fpreprocessed -dD -E -P tmp/code.cpp -o tmp/comp.cpp")
 
-    with open("tmp/comp.cpp") as f:
-        comp = f.read()
+    # with open("tmp/comp.cpp") as f:
+    #    comp = f.read()
+
+    code = code.split('\n')
+    comp = ""
+    for line in code:
+        if "//" in line:
+            line = line[:line.index("//")]
+        comp += line+"\n"
 
     comp = comp.replace(" ", "").replace("\t", "").replace("\n", "")
     return hashlib.sha1(comp).hexdigest()[:16]
@@ -46,11 +53,20 @@ def compute_checksum(code):
 os.system("rm -rf tmp")
 os.system("mkdir tmp")
 
-with open(os.path.join(files_directory, "sort")) as sf:
-    code_files = [i.strip() for i in sf.read().strip().split()]
+code_files = []
+def walk_dir(dirname):
+    with open(os.path.join(dirname, "sort")) as sf:
+        for line in sf.read().strip().split():
+            line = line.strip()
+            if line.endswith('/'):
+                walk_dir(os.path.join(dirname, line[:-1]))
+            else:
+                code_files.append(os.path.join(dirname, line))
+
+walk_dir(files_directory)
 
 for fname in code_files:
-    with open(os.path.join(files_directory, fname)) as f:
+    with open(fname) as f:
         code = f.read()
         if code.strip()[0]=='/':
             checksum = compute_checksum(code) 

@@ -29,7 +29,7 @@ namespace lazy_segtree {
 
     void modify(int p, T v) {
         push(p);
-        t[p+n] = v;
+        t[p+=n] = v;
         while(p > 1) calc(p /= 2);
     }
 
