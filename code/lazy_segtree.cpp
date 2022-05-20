@@ -3,8 +3,7 @@
 namespace lazy_segtree {
 	T t[2 * NN], idT;
 	D d[NN], idD;
-	ll n = NN;
-    ll x = (fill_n(d, NN, idD), 0);
+	ll n = (fill_n(d, NN, idD), NN);
 
     void calc(int p) {
         t[p] = f(t[p*2], t[p*2+1]);
@@ -14,13 +13,6 @@ namespace lazy_segtree {
     void apply(int p, D v) {
         t[p] = h(v, t[p]);
         if (p<n) d[p] = g(v, d[p]);
-    }
-
-    void build(int l, int r) {
-        for (l+=n, r+=n-1; l>1; ) {
-            l/=2, r/=2;
-            for (int i=r; i>=l; --i) calc(i);
-        }
     }
 
     void push(int p) {
@@ -38,7 +30,7 @@ namespace lazy_segtree {
     void modify(int p, T v) {
         push(p);
         t[p+n] = v;
-        build(p, p+1);
+        while(p > 1) calc(p /= 2);
     }
 
     void modify(int l, int r, D v) {

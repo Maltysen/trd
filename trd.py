@@ -2,6 +2,8 @@
 # TODO: newton rahpson
 # TODO: better CRT
 # TODO: suffix tree operations
+# TODO: tabs instead of spaces and set tabwidth
+# TODO: better memory layout on d2d
 
 import os
 import hashlib
@@ -24,7 +26,7 @@ latex_code = r"""
 
 \renewcommand{\theFancyVerbLine}{\sffamily \textcolor[RGB]{110, 119, 129}{\small \oldstylenums{\arabic{FancyVerbLine}}}}
 
-\setminted{linenos,style=xcode}
+\setminted{linenos,style=xcode,breaklines}
 
 \begin{document}
 """

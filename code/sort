@@ -1,4 +1,5 @@
 template.cpp
+build
 segtree.cpp
 modinv.cpp
 dsu.cpp
@@ -7,9 +8,14 @@ totient.cpp
 miller_rabin.cpp
 digit_dp.cpp
 pbds.cpp
+goodhash.cpp
 dinic.cpp
 kuhn.cpp
 tree_flat_single.cpp
+dfstree.cpp
+lca.cpp
+scc.cpp
+dijkstra.cpp
 matmul.cpp
 gaussfloat.cpp
 gaussmod.cpp
@@ -20,3 +26,9 @@ big_factor.cpp
 crt.cpp
 mos.cpp
 sos_dp.cpp
+centroid.cpp
+hld.cpp
+d2d_segtree.cpp
+cross_product3d.cpp
+common_functions.cpp
+freopen.cpp
