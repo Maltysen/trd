@@ -38,6 +38,9 @@ li_chao.cpp
 lis.cpp
 centroid.cpp
 hld.cpp
+xor_convolution.cpp
+and_convolution.cpp
+or_convolution.cpp
 hungarian.cpp
 min_cost_flow.cpp
 mergesort_tree.cpp
