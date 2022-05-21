@@ -11,6 +11,7 @@ goodhash.cpp
 dinic.cpp
 kuhn.cpp
 tree_flat_standard.cpp
+tree_flat_euler.cpp
 dfstree.cpp
 lca.cpp
 sparse_table.cpp

@@ -30,6 +30,6 @@ vl mult(vl a, vl b) {
 
     F(s, 2, L) {
 		ll z[] = {1, pw(root, M >> s)};
-		F(int i=1 << (s - 1); i<(1 << s); ++i)
+		for(int i=1 << (s - 1); i<(1 << s); ++i)
             rt.push_back(rt[i / 2] * z[i & 1] % M);
 	}
