@@ -1,0 +1,4 @@
+# Hashing script
+cat $1 | tr -d "\n \t" | tee x0 | split -b 200
+paste -d '\n' <(sha1sum x* | cut -c-16) <(tail -c10 x* | sed -n 4~2p)
+rm x*

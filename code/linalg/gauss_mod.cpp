@@ -7,7 +7,7 @@ int solve_system(mat a, vector<ll> &b) {
 
     where.assign(m, -1);
     for (int col=0,row=0; col<m && row<n; ++col) {
-        int k=0; while (k<n && !a[k][col]) ++k;
+        int k=row; while (k<n && !a[k][col]) ++k;
         if (k==n) continue;
         swap(a[k], a[row]);
         where[col] = row;

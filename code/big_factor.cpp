@@ -1,6 +1,6 @@
 @HASH
-// Pollard Rho Brent O(n^1/4)
-// Needs mul from miller rabin
+// Factor numbers in O(n^1/3 /log(n))
+// Needs primes up to O(n^1/3)
 #define ff(x) abs((x = (mul(x, x) + c)%n) -y)
 ll rho(ll n, ll u=2, ll c=1) {
     ll x=u, g=1, q=1, z, y;
@@ -22,8 +22,6 @@ ll rho(ll n, ll u=2, ll c=1) {
     return g-n? g: rho(n, u+1, c+1);
 }
 
-// Factor numbers in O(n^1/3 /log(n))
-// Needs primes up to O(n^1/3)
 auto fac(ll n) {
     map<ll,ll> f;
     for (ll p:primes) {

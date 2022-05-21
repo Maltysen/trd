@@ -43,6 +43,9 @@ latex_code = r"""
 
 """
 
+def do_hash(s):
+    return hashlib.sha1(s).hexdigest()[:16]
+
 def compute_checksum(code):
     # with open("tmp/code.cpp", "w") as f:
     #     f.write(code)
@@ -60,7 +63,14 @@ def compute_checksum(code):
         comp += line+"\n"
 
     comp = comp.replace(" ", "").replace("\t", "").replace("\n", "")
-    return hashlib.sha1(comp).hexdigest()[:16]
+
+    hashes = [do_hash(comp)]
+    i = 0
+    blk = 200
+    while i<len(comp):
+        hashes.append(do_hash(comp[i:min(i+blk, len(comp))]))
+        i+=blk
+    return hashes
 
 os.system("rm -rf tmp")
 os.system("mkdir tmp")
@@ -73,13 +83,17 @@ def process_file(fname):
         if code.startswith("@HASH"):
             code = code.split("\n", 1)[1]
             checksum = compute_checksum(code) 
+
             code = code.split("\n", 1)
-            code = code[0] + "    | " + checksum + "\n" + code[1]
+            code[0] += "    | " + checksum[0]
+            code[1] = "// " + "    ".join(checksum[1:])+"\n"+code[1]
+            code = code[0] + "\n" + code[1]
 
         name = fname.split('/')[-1].split('.')[0].replace('_', ' ').title()
+        ftype = "cpp" if fname.endswith("cpp") else "bash"
 
         latex_code += r"\addcontentsline{toc}{section}{" + name + "}" + "\n"
-        latex_code += r"\begin{minted}{cpp}" + "\n"
+        latex_code += r"\begin{minted}{"+ftype+"}" + "\n"
         latex_code += code
         latex_code += "\n" + r"\end{minted}" + "\n"
 
