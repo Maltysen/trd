@@ -1,3 +1,4 @@
+@HASH
 // Finds the two lines tangent to two circles
 vector<line> circTangents(circ c1, circ c2) {
 	pt d = c2.C - c1.C;

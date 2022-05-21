@@ -20,6 +20,7 @@ string_hashing.cpp
 lcp_hashing.cpp
 suffix_array.cpp
 linalg/
+ntt.cpp
 suffix_tree.cpp
 inverse_segtree.cpp
 lazy_segtree.cpp
@@ -33,8 +34,9 @@ lis.cpp
 centroid.cpp
 hld.cpp
 mergesort_tree.cpp
+struct_segtree.cpp
 d2d_segtree.cpp
-cross_product3d.cpp
-common_functions.cpp
+cross_product_3d.cpp
+common_idioms.cpp
 freopen.cpp
 geometry/

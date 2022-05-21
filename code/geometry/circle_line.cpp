@@ -1,3 +1,4 @@
+@HASH
 // Circle line intersection
 vector<pt> intsctCL(circ c, line l) {
     vector<pt> v, ans;

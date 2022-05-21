@@ -1,28 +1,5 @@
-struct seg {
-    T* t;
-    int n;
-
-    void init(int nn) {
-        n = nn;
-        t = new T[2*n];
-        fill(t, t+2*n, id);
-    }
-
-    void modify(int p, T value) {  // set value at position p
-      for (p+=n, t[p] = value; p /= 2;) t[p] = f(t[2*p], t[2*p+1]);
-    }
-
-    T query(int l, int r) { // fold f on interval [l, r)
-      T resl=id, resr=id;
-      for (l += n, r += n; l < r; l /= 2, r /= 2) {
-        if (l&1) resl = f(resl, t[l++]);
-        if (r&1) resr = f(t[--r], resr);
-      }
-      return f(resl, resr);
-    }
-};
-
-
+@HASH
+// Dynamic 2d segtree with cord comp on each node
 struct d2dseg {
     using I=pair<K, int>;
     int n;

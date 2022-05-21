@@ -1,3 +1,4 @@
+@HASH
 // Circle circle intersection
 vector<pt> intsctCC(circ c1, circ c2) {
     pt d = c2.C - c1.C;

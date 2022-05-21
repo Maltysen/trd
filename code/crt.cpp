@@ -1,3 +1,4 @@
+@HASH
 // Chinese Remainder Theorem
 ll CRT(const vector<ll> &a, const vector<ll> &n) {
   ll prod = 1;

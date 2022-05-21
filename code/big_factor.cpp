@@ -1,3 +1,4 @@
+@HASH
 // Pollard Rho Brent O(n^1/4)
 // Needs mul from miller rabin
 #define ff(x) abs((x = (mul(x, x) + c)%n) -y)

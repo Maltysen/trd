@@ -1,4 +1,5 @@
-//HLD
+@HASH
+// HLD (Heavy Light Decomposition)
 vl tree[N];
 T val[N];
 ll dep[N], idx[N], sz[N], top[N];
@@ -35,9 +36,7 @@ T query(ll a, ll b) {
     return sgtree::f(query(a, top[b]), sgtree::query(b, dep[b] - dep[top[b]]));
 }
 
-void preproc() {
     dfs1(1, N - 1); //N - 1 is unused root vertex
     //if values initially on edges, fill val[] here
     dfs2(1, N - 1, N - 1);
-}
 

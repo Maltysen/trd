@@ -1,3 +1,4 @@
+@HASH
 // Miller rabin primality test (deterministic)
 typedef uint64_t ull;
 

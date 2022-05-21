@@ -1,3 +1,4 @@
+@HASH
 // 3D Cross product
 vec cross(const vec&a, const vec&b) {
 	return {

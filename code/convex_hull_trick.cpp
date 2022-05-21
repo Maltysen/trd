@@ -1,3 +1,4 @@
+@HASH
 // CHT (Convex Hull Trick)
 struct seg { ld x; ll m, b; };
 vector<seg> hull;

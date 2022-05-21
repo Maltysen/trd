@@ -1,3 +1,4 @@
+@HASH
 // Convex Hull
 void do_hull(vector<pt>& pts, vector<pt>& h) {
 	for(pt p : pts) {

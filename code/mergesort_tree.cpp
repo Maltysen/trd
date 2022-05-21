@@ -1,3 +1,4 @@
+@HASH
 //Mergesort Tree
 namespace mstree {
     vl t[2 * N];

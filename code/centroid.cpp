@@ -1,3 +1,4 @@
+@HASH
 //Centroid Decomposition
 vl tree[N];
 ll sz[N], cPar[N], lvl[N]; //lvl is 1-indexed
