@@ -6,8 +6,8 @@ vl mult_mod(vl x, vl y) {
 
     vector<cd> a(n), b(n), c(n), d(n);
     for (int i = 0; i < n; ++i) {
-        a[i] = i<na ? cd(x[i]%S, x[i]/S) : cd(0,0);
-        b[i] = i<nb ? cd(y[i]%S, y[i]/S) : cd(0,0);
+        a[i] = i<x.size() ? cd(x[i]%S, x[i]/S) : cd(0,0);
+        b[i] = i<y.size() ? cd(y[i]%S, y[i]/S) : cd(0,0);
     }
     fft(a), fft(b);
 
@@ -20,13 +20,13 @@ vl mult_mod(vl x, vl y) {
     fft(c), fft(d);
 
     ll ss = S*S%M;
-    vl ans(na+nb-1);
+    vl ans(x.size()+y.size()-1);
     for (int i=0; i<n; ++i) {
         ll h0 = round(c[i].real()),
             h1 = round(c[i].imag() + d[i].real()),
             h2 = round(d[i].imag());
         ll val = (h0%M + h1%M*S%M + h2%M*ss%M)%M;
-        if (i<na+nb-1) ans[i]=val;
+        if (i<ans.size()) ans[i]=val;
     }
     return ans;
 }

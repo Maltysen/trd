@@ -23,6 +23,7 @@ suffix_array.cpp
 linalg/
 fft.cpp
 ntt.cpp
+fft_mod.cpp
 suffix_tree.cpp
 suffix_tree_no_map.cpp
 inverse_segtree.cpp
@@ -37,6 +38,7 @@ li_chao.cpp
 lis.cpp
 centroid.cpp
 hld.cpp
+hungarian.cpp
 min_cost_flow.cpp
 mergesort_tree.cpp
 struct_segtree.cpp
