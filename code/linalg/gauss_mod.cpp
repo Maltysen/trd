@@ -33,5 +33,5 @@ int solve_system(mat a, vector<ll> &b) {
             return 0;
     }
 
-    return !count(all(where), -1) + 1;
+    return !!count(all(where), -1) + 1;
 }

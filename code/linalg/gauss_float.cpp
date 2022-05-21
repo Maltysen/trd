@@ -36,5 +36,5 @@ int solve_system(mat a, vector<ld> &b) {
         if (abs(sum - a[i][m]) > EPS) return 0;
     }
 
-    return !count(all(where), -1) + 1;
+    return !!count(all(where), -1) + 1;
 }

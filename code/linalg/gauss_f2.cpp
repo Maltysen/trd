@@ -12,13 +12,9 @@ int solve_system_f2(mat A, bitset<BB> &b) {
 
     where.assign(m, -1);
     for (int col=0, row=0; col<m && row<n; ++col) {
-        for (int i=row; i<n; ++i)
-            if (a[i][col]) {
-                swap(a[i], a[row]);
-                break;
-            }
-        if (!a[row][col])
-            continue;
+        int k=0; while (k<n && !a[k][col]) ++k;
+        if (k==n) continue;
+        swap(a[k], a[row]);
         where[col] = row;
 
         for (int i=0; i<n; ++i)
@@ -28,9 +24,8 @@ int solve_system_f2(mat A, bitset<BB> &b) {
     }
 
     b.reset();
-    for (int i=0; i<m; ++i)
-        if (where[i] != -1)
-            b[i] = a[where[i]][m];
+    for (int i=0; i<m; ++i) if (~where[i])
+        b[i] = a[where[i]][m];
 
     for (int i=0; i<n; ++i) {
         int sum = 0;
@@ -40,10 +35,7 @@ int solve_system_f2(mat A, bitset<BB> &b) {
             return 0;
     }
 
-    for (int i=0; i<m; ++i)
-        if (where[i] == -1)
-            return 2;
-    return 1;
+    return !!count(all(where), -1) + 1;
 }
 
 
