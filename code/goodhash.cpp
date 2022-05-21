@@ -1,3 +1,4 @@
+@HASH
 //Good Hash Function
 struct rhash {
     ll operator()(ll x) const {

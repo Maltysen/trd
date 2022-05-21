@@ -1,3 +1,4 @@
+@HASH
 // suffix tree, NN here is number of nodes, which is like 2n+10
 // to[] is edges, root is idx 1
 // lf[] and rt[] are edge info as half open interval into s

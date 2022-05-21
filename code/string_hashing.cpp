@@ -1,3 +1,4 @@
+@HASH
 // String Hashing
 #define M 1000000321
 #define OP(x, y) pl operator x (pl a, pl b) { return { a.K x b.K, (a.V y b.V) % M }; }

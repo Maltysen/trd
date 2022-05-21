@@ -1,3 +1,4 @@
+@HASH
 // Gaussian elimination modulo M
 vector<int> where;
 int solve_system(mat a, vector<ll> &b) {
@@ -6,12 +7,9 @@ int solve_system(mat a, vector<ll> &b) {
 
     where.assign(m, -1);
     for (int col=0,row=0; col<m && row<n; ++col) {
-        for (int i=row; i<n; ++i)
-            if (a[i][col]) {
-                swap(a[i], a[row]);
-                break;
-            }
-        if (!a[row][col]) continue;
+        int k=0; while (k<n && !a[k][col]) ++k;
+        if (k==n) continue;
+        swap(a[k], a[row]);
         where[col] = row;
 
         for (int i=0; i<n; ++i)
@@ -37,4 +35,3 @@ int solve_system(mat a, vector<ll> &b) {
 
     return !count(all(where), -1) + 1;
 }
-

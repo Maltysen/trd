@@ -1,3 +1,4 @@
+@HASH
 // #define S for MAXN, T is S+1 and use add_edge
 struct dinic {
 	struct edge {ll b, cap, flow, flip;};

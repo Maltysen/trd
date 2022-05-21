@@ -1,3 +1,4 @@
+@HASH
 // LCA - least common ancestor
 ll dep[N], par[N][L];
 vl tree[N];

@@ -1,6 +1,7 @@
 // dsu (disjoint set union)
 ll parent[NN], sz[NN];
 ll find(ll a){ return a == parent[a] ? a : parent[a] = find(parent[a]); }
+
 void merge(ll u, ll v) {
     u = find(u), v=find(v);
     if (u!=v) {

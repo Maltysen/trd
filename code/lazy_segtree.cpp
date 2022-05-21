@@ -1,3 +1,4 @@
+@HASH
 // Lazy prop segtree
 // f(T, T)->T   g(D, D)->D    h(D, T)->T
 namespace lazy_segtree {

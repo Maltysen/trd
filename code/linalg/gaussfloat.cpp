@@ -1,3 +1,4 @@
+@HASH
 // Gaussian elimination on ld's
 vector<int> where;
 int solve_system(mat a, vector<ld> &b) {
@@ -37,4 +38,3 @@ int solve_system(mat a, vector<ld> &b) {
 
     return !count(all(where), -1) + 1;
 }
-

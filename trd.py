@@ -1,6 +1,7 @@
 # TODO: golf lazy_segtree
 # TODO: newton rahpson
 # TODO: better CRT
+# TODO: verify gauss mod
 # TODO: suffix tree operations
 # TODO: tabs instead of spaces and set tabwidth
 # TODO: better memory layout on d2d
@@ -18,6 +19,10 @@ latex_code = r"""
 \usepackage{fontspec}
 \usepackage[a4paper, margin=0.5in, bmargin=.15in]{geometry}
 \usepackage{moresize}
+\usepackage{multicol}
+
+\setlength{\columnseprule}{1pt}
+\setlength{\columnsep}{1cm}
 
 \setmonofont{Liberation Mono}
 
@@ -29,6 +34,13 @@ latex_code = r"""
 \setminted{linenos,style=xcode,breaklines}
 
 \begin{document}
+
+
+\begin{multicols}{3}
+  \tableofcontents
+\end{multicols}
+\newpage
+
 """
 
 def compute_checksum(code):
@@ -53,35 +65,46 @@ def compute_checksum(code):
 os.system("rm -rf tmp")
 os.system("mkdir tmp")
 
-code_files = []
-def walk_dir(dirname):
-    with open(os.path.join(dirname, "sort")) as sf:
-        for line in sf.read().strip().split():
-            line = line.strip()
-            if line.endswith('/'):
-                walk_dir(os.path.join(dirname, line[:-1]))
-            else:
-                code_files.append(os.path.join(dirname, line))
+def process_file(fname):
+    global latex_code
 
-walk_dir(files_directory)
-
-for fname in code_files:
     with open(fname) as f:
-        code = f.read()
-        if code.strip()[0]=='/':
+        code = f.read().strip()
+        if code.startswith("@HASH"):
+            code = code.split("\n", 1)[1]
             checksum = compute_checksum(code) 
             code = code.split("\n", 1)
             code = code[0] + "    | " + checksum + "\n" + code[1]
 
-        latex_code += r"\begin{minted}{cpp}"+"\n"
+        name = fname.split('/')[-1].split('.')[0].replace('_', ' ').title()
+
+        latex_code += r"\addcontentsline{toc}{section}{" + name + "}" + "\n"
+        latex_code += r"\begin{minted}{cpp}" + "\n"
         latex_code += code
         latex_code += "\n" + r"\end{minted}" + "\n"
 
-latex_code += "\end{document}"
+def walk_dir(dirname):
+    global latex_code
+    with open(os.path.join(dirname, "sort")) as sf:
+        for line in sf.read().strip().split():
+            line = line.strip()
+            if line.endswith('/'):
+                latex_code += r"\addcontentsline{toc}{part}{" + line[:-1] + "}" + "\n"
+                walk_dir(os.path.join(dirname, line[:-1]))
+                latex_code += r"\addtocontents{toc}{\protect\contentsline{section}{}{}}"
+            else:
+                process_file(os.path.join(dirname, line))
+
+walk_dir(files_directory)
+
+latex_code += """
+\end{document}
+"""
 
 with open("tmp/final.tex", "w") as wf:
     wf.write(latex_code)
 
+os.system("cd tmp && lualatex -shell-escape --interaction=batchmode final.tex")
 os.system("cd tmp && lualatex -shell-escape --interaction=batchmode final.tex")
 os.system("mv tmp/final.pdf out.pdf")
 os.system("rm -rf tmp")
