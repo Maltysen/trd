@@ -1,1 +1,0 @@
-g++ --std=gnu++14 -Wall -Wshadow -Wno-sign-compare $1.cpp -o $1 2>&1 | more 
