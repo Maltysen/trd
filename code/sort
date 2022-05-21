@@ -20,6 +20,7 @@ string_hashing.cpp
 lcp_hashing.cpp
 suffix_array.cpp
 linalg/
+fft.cpp
 ntt.cpp
 suffix_tree.cpp
 inverse_segtree.cpp
@@ -30,12 +31,14 @@ crt.cpp
 mos.cpp
 sos_dp.cpp
 convex_hull_trick.cpp
+li_chao.cpp
 lis.cpp
 centroid.cpp
 hld.cpp
 mergesort_tree.cpp
 struct_segtree.cpp
 d2d_segtree.cpp
+avx_segtree.cpp
 cross_product_3d.cpp
 common_idioms.cpp
 freopen.cpp
