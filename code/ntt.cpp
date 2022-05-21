@@ -18,7 +18,7 @@ void ntt(vl &a) {
 }
 
 vl mult(vl a, vl b) {
-	int n = a.size() + b.size();
+	int n = a.size() + b.size() - 1;
     while(__builtin_popcount(n) > 1) n++;
     a.resize(n), b.resize(n);
     vl out(n); ll in = inv(n);

@@ -1,3 +1,5 @@
 matmul.cpp
-gaussfloat.cpp
-gaussmod.cpp
+gauss_float.cpp
+gauss_mod.cpp
+matmul_f2.cpp
+gauss_f2.cpp

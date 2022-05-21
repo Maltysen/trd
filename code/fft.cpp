@@ -18,7 +18,7 @@ void fft(vector<cd>& a) {
 }
 
 vector<ld> mult(vector<ld> a, vector<ld> b) {
-    int n = a.size() + b.size();
+    int n = a.size() + b.size() - 1;
     while(__builtin_popcount(n) > 1) n++;
     vector<cd> in(n), out(n);
     a.resize(n), b.resize(n);

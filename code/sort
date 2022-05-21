@@ -24,6 +24,7 @@ linalg/
 fft.cpp
 ntt.cpp
 suffix_tree.cpp
+suffix_tree_no_map.cpp
 inverse_segtree.cpp
 lazy_segtree.cpp
 miller_rabin.cpp
@@ -36,11 +37,13 @@ li_chao.cpp
 lis.cpp
 centroid.cpp
 hld.cpp
+min_cost_flow.cpp
 mergesort_tree.cpp
 struct_segtree.cpp
 d2d_segtree.cpp
 avx_segtree.cpp
 cross_product_3d.cpp
 common_idioms.cpp
+formulas.cpp
 freopen.cpp
 geometry/
