@@ -16,7 +16,6 @@ dfstree.cpp
 lca.cpp
 sparse_table.cpp
 scc.cpp
-dijkstra.cpp
 string_hashing.cpp
 lcp_hashing.cpp
 suffix_array.cpp
