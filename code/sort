@@ -18,6 +18,7 @@ linalg/
 fft.cpp
 ntt.cpp
 fft_mod.cpp
+aho_corasick.cpp
 suffix_tree.cpp
 suffix_tree_no_map.cpp
 inverse_segtree.cpp
