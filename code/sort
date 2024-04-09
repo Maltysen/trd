@@ -5,7 +5,6 @@ modinv.cpp
 dsu.cpp
 prime_seive.cpp
 totient.cpp
-digit_dp.cpp
 pbds.cpp
 goodhash.cpp
 dinic.cpp
