@@ -2,7 +2,6 @@ template.cpp
 scripts/
 segtree.cpp
 modinv.cpp
-prime_seive.cpp
 totient.cpp
 pbds.cpp
 goodhash.cpp
