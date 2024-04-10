@@ -11,6 +11,8 @@ comparator.cpp
 convex_hull.cpp
 in_hull.cpp
 full_hull.cpp
+in_poly.cpp
+centroid.cpp
 circ.cpp
 circle_circle.cpp
 circle_line.cpp
