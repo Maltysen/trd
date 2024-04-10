@@ -18,6 +18,6 @@ circle_circle.cpp
 circle_line.cpp
 circle_tangent.cpp
 cross_product_3d.cpp
-hull3d.cpp
+hull_3d.cpp
 delaunay.cpp
-polyvolume3d.cpp
+poly_volume_3d.cpp

@@ -18,7 +18,7 @@ linalg/
 fft.cpp
 ntt.cpp
 fft_mod.cpp
-polynomial_invert.cpp
+polynomial_inversion.cpp
 aho_corasick.cpp
 suffix_tree.cpp
 suffix_tree_no_map.cpp
