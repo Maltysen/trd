@@ -15,8 +15,9 @@ bool miller_rabin(ull n) {
     for (int a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
         if (n==a) return 1;
         ull x = binpow(a, n-1>>s, n);
+        if (x==1) continue;
         for (int r=0; x!=n-1 && r<s; ++r) x=mul(x,x);
-        if (x!=n-1 && x-1) return 0;
+        if (x!=n-1) return 0;
     }
     return 1;
 }

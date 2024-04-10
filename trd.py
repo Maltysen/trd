@@ -111,9 +111,9 @@ def walk_dir(dirname):
 
 walk_dir(files_directory)
 
+# \newpage
+# Notes:
 latex_code += r"""
-\newpage
-Notes:
 \end{document}
 """
 

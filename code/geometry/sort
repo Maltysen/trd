@@ -11,7 +11,13 @@ comparator.cpp
 convex_hull.cpp
 in_hull.cpp
 full_hull.cpp
+in_poly.cpp
+centroid.cpp
 circ.cpp
 circle_circle.cpp
 circle_line.cpp
 circle_tangent.cpp
+cross_product_3d.cpp
+hull_3d.cpp
+delaunay.cpp
+poly_volume_3d.cpp
