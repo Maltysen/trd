@@ -36,6 +36,7 @@ hld.cpp
 bitwise_convolution.cpp
 hungarian.cpp
 min_cost_flow.cpp
+simplex.cpp
 mergesort_tree.cpp
 struct_segtree.cpp
 d2d_segtree.cpp
