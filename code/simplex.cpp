@@ -1,7 +1,6 @@
 @HASH
 // Simplex
 // max cx constraint Ax<=b, x>=0. -∞ no sol, ∞ no max, O(NM#pivs)
-typedef vector<ld> vd;
 const ld eps = 1e-8, inf = 1/.0;
 #define ltj(X) if(s == -1 || pair{X[j],N[j]} < pair{X[s],N[s]}) s=j
 
@@ -15,7 +14,7 @@ struct LPSolver {
 			F(i,0,m) F(j,0,n) D[i][j] = A[i][j];
 			F(i,0,m) B[i]=n+i, D[i][n]=-1, D[i][n+1]=b[i];
 			F(j,0,n) N[j]=j, D[m][j]=-c[j];
-			N[n] = -1; D[m+1][n] = 1;
+			N[n] = -1, D[m+1][n] = 1;
 		}
 
 	void pivot(int r, int s) {
@@ -27,8 +26,7 @@ struct LPSolver {
 		}
 		F(j,0,n+2) if (j != s) D[r][j] *= inv;
 		F(i,0,m+2) if (i != r) D[i][s] *= -inv;
-		D[r][s] = inv;
-		swap(B[r], N[s]);
+		D[r][s] = inv, swap(B[r], N[s]);
 	}
 
 	bool simplex(int phase) {
