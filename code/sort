@@ -41,7 +41,6 @@ mergesort_tree.cpp
 struct_segtree.cpp
 d2d_segtree.cpp
 avx_segtree.cpp
-cross_product_3d.cpp
 common_idioms.cpp
 formulas.cpp
 freopen.cpp

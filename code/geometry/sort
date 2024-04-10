@@ -15,3 +15,7 @@ circ.cpp
 circle_circle.cpp
 circle_line.cpp
 circle_tangent.cpp
+cross_product_3d.cpp
+hull3d.cpp
+delaunay.cpp
+polyvolume3d.cpp
